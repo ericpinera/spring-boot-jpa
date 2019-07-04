@@ -34,6 +34,11 @@ public class AlienController {
 		ModelAndView mv = new ModelAndView("showAlien.html");
 		
 		Alien alien = repo.findById(aid).orElse(new Alien());
+		
+		System.out.println(repo.findByAtech("Java"));
+		
+		System.out.println(repo.findByAidGreaterThan(101));
+		
 		mv.addObject("alien", alien);		
 		
 		return mv;
