@@ -3,6 +3,8 @@ package com.eryusoft.core.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.eryusoft.core.dao.AlienRepo;
 import com.eryusoft.core.model.Alien;
@@ -24,6 +26,17 @@ public class AlienController {
 	{
 		repo.save(alien);
 		return "Home.html";
+	}
+	
+	@RequestMapping("/getAlien")
+	public ModelAndView getAlien(@RequestParam int aid)
+	{
+		ModelAndView mv = new ModelAndView("showAlien.html");
+		
+		Alien alien = repo.findById(aid).orElse(new Alien());
+		mv.addObject("alien", alien);		
+		
+		return mv;
 	}
 
 }

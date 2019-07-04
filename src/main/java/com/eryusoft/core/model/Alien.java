@@ -9,6 +9,14 @@ public class Alien {
 	@Id
 	private int aid;	
 	private String aname;
+	private String atech;
+	
+	public String getAtech() {
+		return atech;
+	}
+	public void setAtech(String atech) {
+		this.atech = atech;
+	}
 	public int getAid() {
 		return aid;
 	}
@@ -23,7 +31,7 @@ public class Alien {
 	}	
 	@Override
 	public String toString() {
-		return "Alien [aid=" + aid + ", aname=" + aname + "]";
+		return "Alien [aid=" + aid + ", aname=" + aname + ", atech=" + atech + "]";
 	}
 	
 	
